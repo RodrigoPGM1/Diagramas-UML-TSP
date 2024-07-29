@@ -1,0 +1,34 @@
+@startuml
+package "SISTEMA_TSP" {
+    class Ciudad {
+        - nombre: String
+        - x: double
+        - y: double
+        + calcularDistancia(otraCiudad: Ciudad): double
+    }
+
+    class Ruta {
+        - ciudades: List<Ciudad>
+        + calcularLongitud(): double
+    }
+
+    class Informe {
+        - contenido: String
+        + generarInforme(): String
+    }
+
+    class SistemaTSP {
+        - ciudades: List<Ciudad>
+        - ruta: Ruta
+        + agregarCiudad(ciudad: Ciudad): void
+        + calcularRutaOptima(): Ruta
+        + generarInforme(): Informe
+    }
+
+    Ciudad "1" -- "0..*" Ruta : "contiene"
+    Ruta "1" -- "0..1" Informe : "genera"
+    SistemaTSP "1" -- "0..*" Ciudad : "maneja"
+    SistemaTSP "1" -- "0..1" Ruta : "utiliza"
+    SistemaTSP "1" -- "0..1" Informe : "genera"
+}
+@enduml

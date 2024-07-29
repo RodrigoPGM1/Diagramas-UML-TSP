@@ -1,0 +1,15 @@
+@startuml
+
+    actor "Viajante" as V
+    participant "Sistema de Optimización" as S
+
+    V -> S : Introducir Ciudades y Distancias
+    S -> S : Almacenar Datos
+    S -> S : Calcular Ruta Óptima
+    S -> V : Mostrar Ruta Óptima
+    alt Generar Informe de Resultados
+        S -> S : Generar Informe
+        S -> V : Entregar Informe de Resultados
+    end
+
+@enduml

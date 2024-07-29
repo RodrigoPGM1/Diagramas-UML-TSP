@@ -1,0 +1,33 @@
+@startuml
+package "SISTEMA_TSP" {
+    [Módulo de Entrada de Datos] as DataInput
+    [Módulo de Cálculo de Ruta] as RouteCalculation
+    [Módulo de Visualización de Resultados] as ResultDisplay
+    [Módulo de Generación de Informes] as ReportGeneration
+
+    DataInput -down-> RouteCalculation : "Proporcionar Datos"
+    RouteCalculation -down-> ResultDisplay : "Enviar Ruta Óptima"
+    RouteCalculation -right-> ReportGeneration : "Generar Informe"
+    ResultDisplay -right-> ReportGeneration : "Solicitar Informe"
+
+    note right of DataInput
+      Este módulo maneja la entrada
+      de ciudades y distancias.
+    end note
+
+    note right of RouteCalculation
+      Este módulo realiza el cálculo
+      de la ruta óptima.
+    end note
+
+    note right of ResultDisplay
+      Este módulo muestra la ruta
+      óptima al usuario.
+    end note
+
+    note right of ReportGeneration
+      Este módulo genera informes
+      opcionales de los resultados.
+    end note
+}
+@enduml

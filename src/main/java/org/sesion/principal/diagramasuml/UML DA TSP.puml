@@ -1,0 +1,19 @@
+@startuml
+package "SISTEMA_TSP" {
+    start
+    :Introducir Ciudades y Distancias;
+    :Validar Datos;
+    if (Datos Válidos?) then (Sí)
+        :Calcular Ruta Óptima;
+        :Mostrar Ruta Óptima;
+        fork
+            :Generar Informe de Resultados;
+        fork again
+            :Opcional: Entregar Informe de Resultados;
+        end fork
+    else (No)
+        :Mostrar Mensaje de Error;
+    endif
+    stop
+}
+@enduml

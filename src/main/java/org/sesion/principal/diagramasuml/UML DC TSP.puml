@@ -1,0 +1,22 @@
+@startuml
+package SISTEMA-TSP{
+actor "Viajante" as V
+actor "Sistema de Optimización" as S
+
+V --> (Introducir Ciudades y Distancias)
+V --> (Actualizar Datos de Entrada)
+V --> (Mostrar Ruta Óptima)
+V --> (Generar Informe de Resultados)
+
+S --> (Introducir Ciudades y Distancias)
+S --> (Calcular Ruta Óptima)
+S --> (Mostrar Ruta Óptima)
+S --> (Generar IMG de Resultados)
+
+(Actualizar Datos de Entrada) .u.> (Calcular Ruta Óptima) : <<include>>
+(Calcular Ruta Óptima) .u.> (Mostrar Ruta Óptima) : <<include>>
+(Calcular Ruta Óptima) .d.> (Generar IMG de Resultados) : <<extend>>
+
+}
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+
+actor Jugador
+actor IA as "Bot"
+actor "Sistema de Juego" as Sistema
+
+usecase "Colocar Barcos" as UC1
+usecase "Realizar Disparo" as UC2
+usecase "Ver Resultados del Disparo" as UC3
+usecase "Iniciar Nueva Partida" as UC4
+usecase "Finalizar Partida" as UC5
+usecase "Colocar Barcos (IA)" as UC6
+usecase "Realizar Disparo (IA)" as UC7
+usecase "Ver Resultados del Disparo (IA)" as UC8
+usecase "Configuración de IA" as UC9
+
+Jugador --> UC1
+Jugador --> UC2
+Jugador --> UC3
+Jugador --> UC4
+Jugador --> UC5
+
+IA --> UC6
+IA --> UC7
+IA --> UC8
+
+Sistema --> UC1
+Sistema --> UC2
+Sistema --> UC3
+Sistema --> UC4
+Sistema --> UC5
+Sistema --> UC9
+
+@enduml

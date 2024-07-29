@@ -1,0 +1,24 @@
+@startuml
+package "SISTEMA_TSP" {
+    node "Cliente" {
+        component "Interfaz de Usuario" as UI
+        UI -down-> "Sistema de Optimización" : "Solicitar/Enviar Datos"
+    }
+
+    node "Servidor" {
+        component "Módulo de Entrada de Datos" as DataInput
+        component "Módulo de Cálculo de Ruta" as RouteCalculation
+        component "Módulo de Visualización de Resultados" as ResultDisplay
+        component "Módulo de Generación de Informes" as ReportGeneration
+
+        DataInput -down-> RouteCalculation : "Proporcionar Datos"
+        RouteCalculation -down-> ResultDisplay : "Enviar Ruta Óptima"
+        RouteCalculation -right-> ReportGeneration : "Generar Informe"
+        ResultDisplay -right-> ReportGeneration : "Solicitar Informe"
+    }
+
+    "Interfaz de Usuario" --> "Módulo de Entrada de Datos" : "Interacción con Datos"
+    "Módulo de Visualización de Resultados" --> "Interfaz de Usuario" : "Mostrar Resultados"
+    "Módulo de Generación de Informes" --> "Interfaz de Usuario" : "Entregar Informe"
+}
+@enduml
